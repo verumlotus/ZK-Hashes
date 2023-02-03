@@ -2,6 +2,7 @@
 
 import bigInt, { BigInteger } from 'big-integer';
 import { MIMC_CONSTANTS } from './constants';
+import { Ok, Err, Result } from "ts-results";
 
 const c = MIMC_CONSTANTS.map((n) => bigInt(n));
 
@@ -62,7 +63,7 @@ export function mimcSponge(
  *
  * @param x The number to modulo against LOCATION_ID_UB
  */
-export function modPBigInt(x: number, p: BigInteger) {
+export function modPBigInt(x: bigint, p: BigInteger) {
   let ret = bigInt(x).mod(p);
   if (ret.lesser(bigInt(0))) {
     ret = ret.add(p);
@@ -70,9 +71,9 @@ export function modPBigInt(x: number, p: BigInteger) {
   return ret;
 }
 
-export const mimcWithRounds =
+const _mimcWithRounds =
   (rounds: number, key: number, p: BigInteger) =>
-  (...inputs: number[]) =>
+  (inputs: bigint[]) =>
     mimcSponge(
       inputs.map((n) => modPBigInt(n, p)),
       1,
@@ -84,8 +85,10 @@ export const mimcWithRounds =
 /**
  * The primary function used to build any MiMC hashing algorithm
  */
-function mimcHash(num_iterations: number, key: number, prime: string) {
-  return mimcWithRounds(num_iterations, key, bigInt(prime));
+function mimcHash(inputs: bigint[], num_iterations: number, key: number, prime: string): Result<bigint, string> {
+  let mimcWithRounds = _mimcWithRounds(num_iterations, key, bigInt(prime));
+  let value = BigInt(mimcWithRounds(inputs).toString());
+  return Ok(value);
 }
 
 export default mimcHash;
