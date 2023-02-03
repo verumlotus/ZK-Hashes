@@ -41,7 +41,7 @@ export function mimcSponge(
   inputs: BigInteger[],
   nOutputs: number,
   rounds: number,
-  key: number,
+  key: bigint,
   p: BigInteger
 ): BigInteger[] {
   const state = new FeistelState(rounds, bigInt(key), p);
@@ -72,7 +72,7 @@ export function modPBigInt(x: bigint, p: BigInteger) {
 }
 
 const _mimcWithRounds =
-  (rounds: number, key: number, p: BigInteger) =>
+  (rounds: number, key: bigint, p: BigInteger) =>
   (inputs: bigint[]) =>
     mimcSponge(
       inputs.map((n) => modPBigInt(n, p)),
@@ -85,10 +85,8 @@ const _mimcWithRounds =
 /**
  * The primary function used to build any MiMC hashing algorithm
  */
-function mimcHash(inputs: bigint[], num_iterations: number, key: number, prime: string): Result<bigint, string> {
+export function mimcHash(inputs: bigint[], num_iterations: number, key: bigint, prime: string): Result<bigint, string> {
   let mimcWithRounds = _mimcWithRounds(num_iterations, key, bigInt(prime));
   let value = BigInt(mimcWithRounds(inputs).toString());
   return Ok(value);
 }
-
-export default mimcHash;
