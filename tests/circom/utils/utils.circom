@@ -9,6 +9,13 @@ template MimcHashMatrix2D(rows, cols, num_iterations, key) {
 
     component mimc = MiMCSponge(rows * cols, num_iterations, 1);
     mimc.k <== key;
+    for (var row = 0; row < rows; row++) {
+        for (var col = 0; col < cols; col++) {
+            var indexFlattenedVector = (row * cols) + col;
+            mimc.ins[indexFlattenedVector] <== matrix[row][col];
+        }
+    }
+    hash <== mimc.outs[0];
 }
 
 // MiMC hash a 3D matrix, with NUM_ITERATIONS iterations for MiMC
