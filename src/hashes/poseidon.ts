@@ -1,4 +1,4 @@
-// Modified from: https://github.com/iden3/circomlibjs/blob/main/src/poseidon_reference.js
+// Credits: https://github.com/iden3/circomlibjs/blob/main/src/poseidon_reference.js
 // and https://github.com/paulmillr/noble-curves/blob/main/src/abstract/poseidon.ts
 import {PoseidonOpts, poseidon as buildPoseidon} from "@noble/curves/lib/abstract/poseidon";
 import {Fp as generatedFieldObject} from "@noble/curves/lib/abstract/modular";
@@ -27,7 +27,7 @@ export function poseidon(inputs: bigint[], prime: string): Result<bigint, string
         roundConstants: POSEIDON_ROUND_CONSTANTS
     }
 
-    const _posiedonFunction = buildPoseidon(poseidonOpts);
-    let x = _posiedonFunction(inputs)[0]
+    const _poseidonFunction = buildPoseidon(poseidonOpts);
+    let x = _poseidonFunction(inputs)[0]
     return Ok(x);
 }

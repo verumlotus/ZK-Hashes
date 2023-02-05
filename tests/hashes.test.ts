@@ -1,6 +1,6 @@
 import { mimcHash } from "../src/hashes/mimcSponge";
 import {poseidon} from "../src/hashes/poseidon";
-import { inputs, MimcBN128ExpectedOutput } from "./inputOutput";
+import { inputs } from "./inputOutput";
 import { BN128_PRIME, VESTA_PRIME } from "../src/hashes/constants";
 // import { Ok, Err, Result } from "ts-results";
 
@@ -202,6 +202,84 @@ describe("MimcVesta", () => {
         const key = BigInt(42);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
         expect(value.val).toEqual(BigInt("17757952548250296356374185437392565573606852125119276243386938645931573837960"));
+    })
+});
+
+describe("PoseidonBN128", () => {
+    const PRIME_CURVE = BN128_PRIME;
+    it("positiveNumber", () => {
+        const hash_inputs = BigInt(inputs['positiveNumber']);
+        const value = poseidon([hash_inputs], PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("negativeNumber", () => {
+        const hash_inputs = BigInt(inputs['negativeNumber']);
+        const value = poseidon([hash_inputs], PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("overflowNumberBN128", () => {
+        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+        const value = poseidon([hash_inputs], PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("simpleArrayShort", () => {
+        const hash_inputs = inputs['simpleArrayShort'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("simpleArrayLong", () => {
+        const hash_inputs = inputs['simpleArrayLong'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("complexArrayNegatives", () => {
+        const hash_inputs = inputs['complexArrayNegatives'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("complexArrayOverflows", () => {
+        const hash_inputs = inputs['complexArrayOverflows'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+});
+
+describe("PoseidonVesta", () => {
+    const PRIME_CURVE = VESTA_PRIME;
+    it("positiveNumber", () => {
+        const hash_inputs = BigInt(inputs['positiveNumber']);
+        const value = poseidon([hash_inputs], PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("negativeNumber", () => {
+        const hash_inputs = BigInt(inputs['negativeNumber']);
+        const value = poseidon([hash_inputs], PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("overflowNumberBN128", () => {
+        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+        const value = poseidon([hash_inputs], PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("simpleArrayShort", () => {
+        const hash_inputs = inputs['simpleArrayShort'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("simpleArrayLong", () => {
+        const hash_inputs = inputs['simpleArrayLong'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("complexArrayNegatives", () => {
+        const hash_inputs = inputs['complexArrayNegatives'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
+    })
+    it("complexArrayOverflows", () => {
+        const hash_inputs = inputs['complexArrayOverflows'].flatMap((elem) => BigInt(elem));
+        const value = poseidon(hash_inputs, PRIME_CURVE);
+        expect(value.val).toEqual(BigInt("0"));
     })
 });
 

@@ -15,47 +15,47 @@ export const inputs = {
     "3DArrayOverflows": [[[-92, "-17039252085508345054445146089948954297605118350696229162271450321641044061606", 41, -26], [48, "25871844077866966563642810585556709974691624923632687449837618333462858200718", 3, -8], [62, 28, "19326368186325987381126256940884625312664556445690447998276832989288966588898", "19085675532877298006160692929817376471636413682368822925307603473373900411026"]], [[10, -49, -70, 20], [-41, 21, 2, 92], [-75, 10, 63, -72]], [[29, -5, -25, -13], ["-15971384563337002820422482922224879487236770315701207290359901989600793644252", 69, "22347896220559703639797345736300658134780573725103874038693327827467895921364", 18], [-25, 1, "26719068897345387932548870699898836364056105357308367340535087026572637411276", -75]], [["13811140756651496243315306183542403123859093568357057239491567454146138836366", "8639626249264132910036609071192206290338279041639148985107627063308343897383", 28, -47], ["12160942526354926125438854495227764869514556581769226101950009413975911634223", "-20449298695596659795297650787556677883892287491817231954743633712631486259557", 97, -72], [7, 18, -18, -81]]]
 }
 
-export const MimcBN128ExpectedOutput = {
-    "positiveNumber": BigInt(dummyVal),
-    "negativeNumber": BigInt(dummyVal),
-    "overflowNumberBN128": BigInt(dummyVal),
-    "simpleArrayShort": BigInt(dummyVal),
-    "simpleArrayLong": BigInt(dummyVal),
-    "complexArrayNegatives": BigInt(dummyVal),
-    "complexArrayOverflows": BigInt(dummyVal),
-    "2DArrayNegatives": BigInt(dummyVal),
-    "2DArrayOverflows": BigInt(dummyVal),
-    "3DArrayNegatives": BigInt(dummyVal),
-    "3DArrayOverflows": BigInt(dummyVal)
-}
+// export const MimcBN128ExpectedOutput = {
+//     "positiveNumber": BigInt(dummyVal),
+//     "negativeNumber": BigInt(dummyVal),
+//     "overflowNumberBN128": BigInt(dummyVal),
+//     "simpleArrayShort": BigInt(dummyVal),
+//     "simpleArrayLong": BigInt(dummyVal),
+//     "complexArrayNegatives": BigInt(dummyVal),
+//     "complexArrayOverflows": BigInt(dummyVal),
+//     "2DArrayNegatives": BigInt(dummyVal),
+//     "2DArrayOverflows": BigInt(dummyVal),
+//     "3DArrayNegatives": BigInt(dummyVal),
+//     "3DArrayOverflows": BigInt(dummyVal)
+// }
 
-export const MimcVestaExpectedOutput = {
-    "positiveNumber": BigInt(dummyVal),
-    "negativeNumber": BigInt(dummyVal),
-    "overflowNumberVesta": BigInt(dummyVal),
-    "simpleArrayShort": BigInt(dummyVal),
-    "simpleArrayLong": BigInt(dummyVal),
-    "complexArrayNegatives": BigInt(dummyVal),
-    "complexArrayOverflows": BigInt(dummyVal),
-    "2DArrayNegatives": BigInt(dummyVal),
-    "2DArrayOverflows": BigInt(dummyVal),
-    "3DArrayNegatives": BigInt(dummyVal),
-    "3DArrayOverflows": BigInt(dummyVal)
-}
+// export const MimcVestaExpectedOutput = {
+//     "positiveNumber": BigInt(dummyVal),
+//     "negativeNumber": BigInt(dummyVal),
+//     "overflowNumberVesta": BigInt(dummyVal),
+//     "simpleArrayShort": BigInt(dummyVal),
+//     "simpleArrayLong": BigInt(dummyVal),
+//     "complexArrayNegatives": BigInt(dummyVal),
+//     "complexArrayOverflows": BigInt(dummyVal),
+//     "2DArrayNegatives": BigInt(dummyVal),
+//     "2DArrayOverflows": BigInt(dummyVal),
+//     "3DArrayNegatives": BigInt(dummyVal),
+//     "3DArrayOverflows": BigInt(dummyVal)
+// }
 
-export const PoseidonBN128ExpectedOutput = {
-    "simpleArrayShort": BigInt(dummyVal),
-    "simpleArrayLong": BigInt(dummyVal),
-    "complexArrayNegatives": BigInt(dummyVal),
-    "complexArrayOverflows": BigInt(dummyVal),
-}
+// export const PoseidonBN128ExpectedOutput = {
+//     "simpleArrayShort": BigInt(dummyVal),
+//     "simpleArrayLong": BigInt(dummyVal),
+//     "complexArrayNegatives": BigInt(dummyVal),
+//     "complexArrayOverflows": BigInt(dummyVal),
+// }
 
-export const PoseidonVestaExpectedOutput = {
-    "simpleArrayShort": BigInt(dummyVal),
-    "simpleArrayLong": BigInt(dummyVal),
-    "complexArrayNegatives": BigInt(dummyVal),
-    "complexArrayOverflows": BigInt(dummyVal),
-}
+// export const PoseidonVestaExpectedOutput = {
+//     "simpleArrayShort": BigInt(dummyVal),
+//     "simpleArrayLong": BigInt(dummyVal),
+//     "complexArrayNegatives": BigInt(dummyVal),
+//     "complexArrayOverflows": BigInt(dummyVal),
+// }
 
 // "positiveNumber":, 
 // "negativeNumber":
