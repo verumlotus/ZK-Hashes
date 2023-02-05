@@ -206,7 +206,6 @@ describe("MimcVesta", () => {
 });
 
 describe("MimcPallas", () => {
-    // TODO : Sub with real values
     const PRIME_CURVE = PALLAS_PRIME;
     it("positiveNumber", () => {
         // Num iterations = 220, key = 12
@@ -214,7 +213,7 @@ describe("MimcPallas", () => {
         const num_iterations = 220;
         const key = BigInt(12);
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("1654567182447334039904588511634377696392441651493422865023230719765285050478"));
+        expect(value.val).toEqual(BigInt("3339755118709645658666678595906893413131888450586088951280957291919193644675"));
     })
     it("negativeNumber", () => {
         // Num iterations = 211, key = 900
@@ -222,7 +221,7 @@ describe("MimcPallas", () => {
         const num_iterations = 211;
         const key = BigInt(900);
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("23322411722294961293154728533911175966085529500718780112883819924705600979466"));
+        expect(value.val).toEqual(BigInt("25963962968894471555739912111518906887605441883415119837862890042508232039827"));
     })
     it("overflowNumberBN128", () => {
         // Num iterations = 187, key = 2
@@ -230,7 +229,7 @@ describe("MimcPallas", () => {
         const num_iterations = 187;
         const key = BigInt(2);
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("14145720156587037614274350170448411321579746882923519389488056619713968568147"));
+        expect(value.val).toEqual(BigInt("1769391014014615869995049101979797128765100256158336879798484147882751540601"));
     })
     it("simpleArrayShort", () => {
         // Num iterations = 219, key = 7
@@ -238,7 +237,7 @@ describe("MimcPallas", () => {
         const num_iterations = 219;
         const key = BigInt(7);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("18231055313224040875288140283605707435288817585030402405567679395785390030442"));
+        expect(value.val).toEqual(BigInt("18298376725664837274208168013424353477222252601231761876723163017200823202260"));
     })
     it("simpleArrayLong", () => {
         // Num iterations = 117, key = 3456
@@ -246,7 +245,7 @@ describe("MimcPallas", () => {
         const num_iterations = 117;
         const key = BigInt(3456);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("6739361090561553799332999487896277552744509378541134953673160599764206772227"));
+        expect(value.val).toEqual(BigInt("8042514900383995475499353072200369885853791237908112562056120056343825810637"));
     })
     it("complexArrayNegatives", () => {
         // Num iterations = 181, key = 0
@@ -254,7 +253,7 @@ describe("MimcPallas", () => {
         const num_iterations = 181;
         const key = BigInt(0);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("9831340276516727565092941267199409680690813270021062585333490554406844529341"));
+        expect(value.val).toEqual(BigInt("21778273891272595747586001329786774883594316339411656355041540051343102930002"));
     })
     it("complexArrayOverflows", () => {
         // Num iterations = 208, key = 77
@@ -262,7 +261,7 @@ describe("MimcPallas", () => {
         const num_iterations = 208;
         const key = BigInt(77);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("14802111098103368463811035410388403916033724353946291247065993624092104640390"));
+        expect(value.val).toEqual(BigInt("7729274130787385913946845115156600975418092448982173323076501401512638385320"));
     })
     it("2DArraySimple", () => {
         // Num iterations = 200, key = 20
@@ -270,7 +269,7 @@ describe("MimcPallas", () => {
         const num_iterations = 200;
         const key = BigInt(20);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("14895791434685078586208781139183751273457065000482321837091813672044378558675"));
+        expect(value.val).toEqual(BigInt("16663165873486729456742358720899145285783541049520841162546414905828255411185"));
     })
     it("2DArrayNegatives", () => {
         // Num iterations = 217, key = 218
@@ -278,7 +277,7 @@ describe("MimcPallas", () => {
         const num_iterations = 217;
         const key = BigInt(218);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("11109489032682303612667797382042342021917569740893157612475597106956626223490"));
+        expect(value.val).toEqual(BigInt("15251702377236305123396996797527803552171022507493021275408678973649403889083"));
     })
     it("2DArrayOverflows", () => {
         // Num iterations = 212, key = 5001
@@ -286,7 +285,7 @@ describe("MimcPallas", () => {
         const num_iterations = 212;
         const key = BigInt(5001);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("22781050323142220293153514945308268641944846088748653354152938441368169429503"));
+        expect(value.val).toEqual(BigInt("20818559579998109267040929376293509099060295609983962626455146461071595970902"));
     })
     it("3DArrayNegatives", () => {
         // Num iterations = 220, key = 0
@@ -294,7 +293,7 @@ describe("MimcPallas", () => {
         const num_iterations = 220;
         const key = BigInt(0);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("16301003253950287916147310625057699495443629298161102065022040419505913255430"));
+        expect(value.val).toEqual(BigInt("21602257479830742584819165142361004470698399715854798046750386683999371638063"));
     })
     it("3DArrayOverflows", () => {
         // Num iterations = 219, key = 42
@@ -302,7 +301,7 @@ describe("MimcPallas", () => {
         const num_iterations = 219;
         const key = BigInt(42);
         const value = mimcHash(hash_inputs, num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("17757952548250296356374185437392565573606852125119276243386938645931573837960"));
+        expect(value.val).toEqual(BigInt("23406435871006136867719230170063791898420165115265180336086164437789967382738"));
     })
 });
 
