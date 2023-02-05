@@ -70,6 +70,38 @@ describe("MimcBN128", () => {
         const value = mimcHash(hash_inputs, num_iterations, key, BN128_PRIME);
         expect(value.val).toEqual(BigInt("7791320094710154790029759622725503065814531517402155941626002724332901633656"));
     })
+    it("2DArrayNegatives", () => {
+        // Num iterations = 217, key = 218
+        const hash_inputs = inputs['2DArrayNegatives'].flatMap((arr) => {return arr.flatMap((elem) => BigInt(elem))});
+        const num_iterations = 217;
+        const key = BigInt(218);
+        const value = mimcHash(hash_inputs, num_iterations, key, BN128_PRIME);
+        expect(value.val).toEqual(BigInt("13071366733944871372949294168015678105887661555742525870234659209245509701488"));
+    })
+    it("2DArrayOverflows", () => {
+        // Num iterations = 212, key = 5001
+        const hash_inputs = inputs['2DArrayOverflows'].flatMap((arr) => {return arr.flatMap((elem) => BigInt(elem))});
+        const num_iterations = 212;
+        const key = BigInt(5001);
+        const value = mimcHash(hash_inputs, num_iterations, key, BN128_PRIME);
+        expect(value.val).toEqual(BigInt("16868075657917333696542907055577222940014678628079087874311505717893483647145"));
+    })
+    it("3DArrayNegatives", () => {
+        // Num iterations = 220, key = 0
+        const hash_inputs = inputs['3DArrayNegatives'].flatMap((outerArr) => {return outerArr.flatMap((innerArr) => {return innerArr.flatMap((elem) => BigInt(elem))})});
+        const num_iterations = 220;
+        const key = BigInt(0);
+        const value = mimcHash(hash_inputs, num_iterations, key, BN128_PRIME);
+        expect(value.val).toEqual(BigInt("21865030777828483721814814140605586061033847637133116016794408111123908573563"));
+    })
+    it("3DArrayOverflows", () => {
+        // Num iterations = 219, key = 42
+        const hash_inputs = inputs['3DArrayOverflows'].flatMap((outerArr) => {return outerArr.flatMap((innerArr) => {return innerArr.flatMap((elem) => BigInt(elem))})});
+        const num_iterations = 219;
+        const key = BigInt(42);
+        const value = mimcHash(hash_inputs, num_iterations, key, BN128_PRIME);
+        expect(value.val).toEqual(BigInt("11103571403184333388678300158844507410532454363643595465412138681918501733988"));
+    })
 });
 
 export {}
