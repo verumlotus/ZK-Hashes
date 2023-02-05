@@ -1,6 +1,6 @@
 WITNESS_FILE=hash_generator.wtns
 # Compile circuit
-circom ./HashGenerator.circom --r1cs --wasm # --prime vesta
+circom ./HashGenerator.circom --r1cs --wasm # --prime pallas
 # Generate the witness, this is when the output hash is logged
 node HashGenerator_js/generate_witness.js HashGenerator_js/HashGenerator.wasm hash_generator.json $WITNESS_FILE
 
