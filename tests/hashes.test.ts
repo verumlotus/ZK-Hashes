@@ -345,82 +345,80 @@ describe("PoseidonBN128", () => {
 });
 
 describe("PoseidonVesta", () => {
-    // TODO : Sub with real values
     const PRIME_CURVE = VESTA_PRIME;
     it("positiveNumber", () => {
         const hash_inputs = BigInt(inputs['positiveNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("23733976976414888001660413346305624205744824523429734758312012492418735954328"));
     })
     it("negativeNumber", () => {
         const hash_inputs = BigInt(inputs['negativeNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("24320619480144032554185991155558101691509079895560984942352217294482804860568"));
     })
     it("overflowNumber", () => {
         const hash_inputs = BigInt(inputs['overflowNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("23697485157146113673377029657402970166092705919854725900568744835623020530161"));
     })
     it("simpleArrayShort", () => {
         const hash_inputs = inputs['simpleArrayShort'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("10148246943864975455840209516398831844995242484352636702637979101131422116154"));
     })
     it("simpleArrayLong", () => {
         const hash_inputs = inputs['simpleArrayLong'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("869745613889833139239288102738313040476721491229522417864412672019243598501"));
     })
     it("complexArrayNegatives", () => {
         const hash_inputs = inputs['complexArrayNegatives'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("7697562277518282090557566979807914191114042855950597667441713226761695823063"));
     })
     it("complexArrayOverflows", () => {
         const hash_inputs = inputs['complexArrayOverflows'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("17246560327897202953724949988969747926373060247798295321263696555454779563275"));
     })
 });
 
 describe("PoseidonPallas", () => {
-    // TODO : Sub with real values
     const PRIME_CURVE = PALLAS_PRIME;
     it("positiveNumber", () => {
         const hash_inputs = BigInt(inputs['positiveNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("28919592630999569323302984497920804797167666283849788833807547835007700644174"));
     })
     it("negativeNumber", () => {
         const hash_inputs = BigInt(inputs['negativeNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("27982280672015973097725106135218557667068277542542588166186325337780483131631"));
     })
     it("overflowNumber", () => {
         const hash_inputs = BigInt(inputs['overflowNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("18294296584484560146040523829038751491914771540010276573799457040406534909914"));
     })
     it("simpleArrayShort", () => {
         const hash_inputs = inputs['simpleArrayShort'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("14792878798440964934508775221203923499126800635721117168085639668204326383278"));
     })
     it("simpleArrayLong", () => {
         const hash_inputs = inputs['simpleArrayLong'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("11296472251293339874490919561801765697411776226270738639175529778673046547211"));
     })
     it("complexArrayNegatives", () => {
         const hash_inputs = inputs['complexArrayNegatives'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("105403280649630770723845173869782822418399702753946304343216619243806771967"));
     })
     it("complexArrayOverflows", () => {
         const hash_inputs = inputs['complexArrayOverflows'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("23586116266802187086432758021561215556078662809877408137345473762983847783186"));
     })
 });
 
