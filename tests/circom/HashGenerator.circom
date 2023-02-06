@@ -1,6 +1,7 @@
 pragma circom 2.1.1;
 include "./utils/mimcsponge.circom";
 include "./utils/utils.circom";
+include "../../node_modules/circomlib/circuits/poseidon.circom";
 
 template MimcHashGenerator() {
     signal input dummy;
@@ -20,21 +21,21 @@ template MimcHashGenerator() {
 
     // Overflow Number
     component mimc_overflow = MiMCSponge(1, 187, 1);
-    mimc_overflow.ins <== [21888242871839275222246405745257275088548364400416034343698204186575837798518];
+    mimc_overflow.ins <== [28948022309329048855892746252171976963363056481941647379679742748393601871999];
     mimc_overflow.k <== 2;
-    log("BN128 Overflow Number: ", mimc_overflow.outs[0]);
+    log("Overflow Number: ", mimc_overflow.outs[0]);
 
-    // 2D Simply Array Short
+    // Simple Array Short
     component mimc_simply_array_short = MiMCSponge(2, 219, 1);
     mimc_simply_array_short.ins <== [1, 2];
     mimc_simply_array_short.k <== 7;
-    log("2D Simply Array Short: ", mimc_simply_array_short.outs[0]);
+    log("Simple Array Short: ", mimc_simply_array_short.outs[0]);
 
-    // 2D Simply Array Long
+    // Simple Array Long
     component mimc_simply_array_long = MiMCSponge(16, 117, 1);
     mimc_simply_array_long.ins <== [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     mimc_simply_array_long.k <== 3456;
-    log("2D Simply Array Long: ", mimc_simply_array_long.outs[0]);
+    log("Simple Array Long: ", mimc_simply_array_long.outs[0]);
 
     // complexArrayNegatives
     component mimc_complexArrayNegatives = MiMCSponge(5, 181, 1);
@@ -77,4 +78,45 @@ template MimcHashGenerator() {
     dummy === 1;
 }
 
-component main = MimcHashGenerator();
+template PoseidonHashGenerator() {
+    signal input dummy;
+    signal output hash;
+
+    // Positive Number
+    component poseidon_positive = Poseidon(1);
+    poseidon_positive.inputs <== [6500];
+    log("Positive Number: ", poseidon_positive.out);
+
+    // Negative Number
+    component poseidon_negative = Poseidon(1);
+    poseidon_negative.inputs <== [-912];
+    log("Negative Number: ", poseidon_negative.out);
+
+    // Overflow Number
+    component poseidon_overflow = Poseidon(1);
+    poseidon_overflow.inputs <== [28948022309329048855892746252171976963363056481941647379679742748393601871999];
+    log("Overflow Number: ", poseidon_overflow.out);
+
+    // Simple Array Short
+    component poseidon_simple_array_short = Poseidon(2);
+    poseidon_simple_array_short.inputs <== [1, 2];
+    log("Simple Array Short: ", poseidon_simple_array_short.out);
+
+    // Simple Array Long
+    component poseidon_simple_array_long = Poseidon(16);
+    poseidon_simple_array_long.inputs <== [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    log("Simple Array Long: ", poseidon_simple_array_long.out);
+
+    // complexArrayNegatives
+    component poseidon_array_negatives = Poseidon(5);
+    poseidon_array_negatives.inputs <== [1, 890, -12, 5647, -900];
+    log("complexArrayNegatives: ", poseidon_array_negatives.out);
+
+    // complexArrayOverflows
+    component poseidon_array_overflows = Poseidon(5);
+    poseidon_array_overflows.inputs <== [-800, 34, 56, 28948022309329048855892746252171976963363056481941647379679742748393601871988, 
+    -28948022309329048855892746252171976963363056481941647379679742748393601871978];
+    log("complexArrayOverflows: ", poseidon_array_overflows.out);
+}
+
+component main = PoseidonHashGenerator();

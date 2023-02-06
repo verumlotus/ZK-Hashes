@@ -1230,6 +1230,11 @@ ci-info@^3.2.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-3.7.1.tgz#708a6cdae38915d597afdf3b145f2f8e1ff55f3f"
   integrity sha512-4jYS4MOAaCIStSRwiuxc4B8MYhIe676yO1sYGzARnjXkWpmzZMMYxY6zu8WYWDhSuth5zhrQ1rhNSibyyvv4/w==
 
+circomlib@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/circomlib/-/circomlib-2.0.5.tgz#183c703e53ed7d011811842dbeeeb9819f4cc1d6"
+  integrity sha512-O7NQ8OS+J4eshBuoy36z/TwQU0YHw8W3zxZcs4hVwpEll3e4hDm3mgkIPqItN8FDeLEKZFK3YeT/+k8TiLF3/A==
+
 cjs-module-lexer@^1.0.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"

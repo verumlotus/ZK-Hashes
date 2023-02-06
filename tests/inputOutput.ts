@@ -2,8 +2,8 @@ const dummyVal = 0;
 export const inputs = {
     "positiveNumber": 6500, 
     "negativeNumber": -912, 
-    "overflowNumberBN128": "21888242871839275222246405745257275088548364400416034343698204186575837798518",
-    "overflowNumberVesta": "28948022309329048855892746252171976963363056481941647379679742748393601871999", 
+    // This number is bigger than the BN-128, Pallas, and Vesta curve primes
+    "overflowNumber": "28948022309329048855892746252171976963363056481941647379679742748393601871999",
     "simpleArrayShort": [1, 2],
     "simpleArrayLong": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
     "complexArrayNegatives": [1, 890, -12, 5647, -900],

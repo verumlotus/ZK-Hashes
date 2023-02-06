@@ -23,13 +23,13 @@ describe("MimcBN128", () => {
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
         expect(value.val).toEqual(BigInt("6213774002967914397523395822807914809105290069651663353468649348524194433652"));
     })
-    it("overflowNumberBN128", () => {
+    it("overflowNumber", () => {
         // Num iterations = 187, key = 2
-        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+        const hash_inputs = BigInt(inputs['overflowNumber']);
         const num_iterations = 187;
         const key = BigInt(2);
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("15695208591769246316122970722379901526894492661299557970751078185958724645522"));
+        expect(value.val).toEqual(BigInt("1652748787280305791003052112023614845645000033769982073814518998091025788598"));
     })
     it("simpleArrayShort", () => {
         // Num iterations = 219, key = 7
@@ -123,13 +123,13 @@ describe("MimcVesta", () => {
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
         expect(value.val).toEqual(BigInt("23322411722294961293154728533911175966085529500718780112883819924705600979466"));
     })
-    it("overflowNumberBN128", () => {
+    it("overflowNumber", () => {
         // Num iterations = 187, key = 2
-        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+        const hash_inputs = BigInt(inputs['overflowNumber']);
         const num_iterations = 187;
         const key = BigInt(2);
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("14145720156587037614274350170448411321579746882923519389488056619713968568147"));
+        expect(value.val).toEqual(BigInt("21224565437802952033028951800569414695938605952333765886296646293179406535156"));
     })
     it("simpleArrayShort", () => {
         // Num iterations = 219, key = 7
@@ -223,13 +223,13 @@ describe("MimcPallas", () => {
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
         expect(value.val).toEqual(BigInt("25963962968894471555739912111518906887605441883415119837862890042508232039827"));
     })
-    it("overflowNumberBN128", () => {
+    it("overflowNumber", () => {
         // Num iterations = 187, key = 2
-        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+        const hash_inputs = BigInt(inputs['overflowNumber']);
         const num_iterations = 187;
         const key = BigInt(2);
         const value = mimcHash([hash_inputs], num_iterations, key, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("1769391014014615869995049101979797128765100256158336879798484147882751540601"));
+        expect(value.val).toEqual(BigInt("24925084366218263856018622710874468648770102731124459115903653310509898476154"));
     })
     it("simpleArrayShort", () => {
         // Num iterations = 219, key = 7
@@ -306,42 +306,41 @@ describe("MimcPallas", () => {
 });
 
 describe("PoseidonBN128", () => {
-    // TODO : Sub with real values
     const PRIME_CURVE = BN128_PRIME;
     it("positiveNumber", () => {
         const hash_inputs = BigInt(inputs['positiveNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("11024901771116949281439297249605340934193999343139303500877431078598017845296"));
     })
     it("negativeNumber", () => {
         const hash_inputs = BigInt(inputs['negativeNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("11490148337724420420912450372975302114894269356345709364634300786610043986485"));
     })
-    it("overflowNumberBN128", () => {
-        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+    it("overflowNumber", () => {
+        const hash_inputs = BigInt(inputs['overflowNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("15970808272900188785661066752035896035451494135794687520863025511127518928880"));
     })
     it("simpleArrayShort", () => {
         const hash_inputs = inputs['simpleArrayShort'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("7853200120776062878684798364095072458815029376092732009249414926327459813530"));
     })
     it("simpleArrayLong", () => {
         const hash_inputs = inputs['simpleArrayLong'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("9989051620750914585850546081941653841776809718687451684622678807385399211877"));
     })
     it("complexArrayNegatives", () => {
         const hash_inputs = inputs['complexArrayNegatives'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("16796394920210585789299853366062574112889650830197092886945270799342845771718"));
     })
     it("complexArrayOverflows", () => {
         const hash_inputs = inputs['complexArrayOverflows'].flatMap((elem) => BigInt(elem));
         const value = poseidon(hash_inputs, PRIME_CURVE);
-        expect(value.val).toEqual(BigInt("0"));
+        expect(value.val).toEqual(BigInt("6529707052067813039955866271971386650127580860546035969456336359008128413277"));
     })
 });
 
@@ -358,8 +357,8 @@ describe("PoseidonVesta", () => {
         const value = poseidon([hash_inputs], PRIME_CURVE);
         expect(value.val).toEqual(BigInt("0"));
     })
-    it("overflowNumberBN128", () => {
-        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+    it("overflowNumber", () => {
+        const hash_inputs = BigInt(inputs['overflowNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
         expect(value.val).toEqual(BigInt("0"));
     })
@@ -398,8 +397,8 @@ describe("PoseidonPallas", () => {
         const value = poseidon([hash_inputs], PRIME_CURVE);
         expect(value.val).toEqual(BigInt("0"));
     })
-    it("overflowNumberBN128", () => {
-        const hash_inputs = BigInt(inputs['overflowNumberBN128']);
+    it("overflowNumber", () => {
+        const hash_inputs = BigInt(inputs['overflowNumber']);
         const value = poseidon([hash_inputs], PRIME_CURVE);
         expect(value.val).toEqual(BigInt("0"));
     })
