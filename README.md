@@ -1,6 +1,6 @@
 # ZK-Hashes
 
-Calculate the hash of any input for ZK-Friendly hashes (MiMC & Poseidon) over a variety of Elliptic Curves (BN-128 (Babyjubjub prime), Vesta, & Pallas). 
+Calculate the hash of any input for ZK-Friendly hashes (MiMC & Poseidon) over a variety of Elliptic Curves (BN-128 (Babyjubjub prime), Vesta, & Pallas). Website [here](https://zk-hashes.vercel.app/). 
 
 ## Background
 Certain operations over a finite field within a ZK-SNARK are much cheaper than others. Notably, addition & multiplication are cheap relative to other operations. Traditional hashes such as [SHA-256](https://en.wikipedia.org/wiki/SHA-2) use non-addition/multiplication operations that make them expensive to use within a SNARK. A series of "ZK-Friendly" hashes (including [MiMC](https://eprint.iacr.org/2016/492) and [Poseidon](https://www.poseidon-hash.info/)) using only the addition & multiplication operations have been created to allow us to use secure hash functions within circuits while keeping circuit sizes reasonable.
