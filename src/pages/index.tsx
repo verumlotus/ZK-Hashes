@@ -29,7 +29,7 @@ export default function Home() {
         <div className={styles.description}>
           <p>
             Online utility for ZK Friendly Hashes (MiMC & Poseidon) over different elliptic curves (BN-128 (Babyjubjub prime),
-            Vesta, & Pallas). You can copy & paste vectors/matrices from circom (e.g valid input would be: [[90, 22020202020], [2394340, 2929029092]]). Works on matrices up to 50 dimensions. Matrices are traversed in row-major order.
+            Vesta, & Pallas). Runs fully client-side. You can copy & paste vectors/matrices from circom (e.g valid input would be: [[90, 22020202020], [2394340, 2929029092]]). Works on matrices up to 50 dimensions. Matrices are traversed in row-major order.
             <br/>
             <b>Limitations:</b> Poseidon currently only works over BN-128. MiMC iterations are capped at 220.
           </p>
