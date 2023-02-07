@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Head>
           <title>ZK Hashes</title>
-          <meta name="description" content="Online utility for ZK Friendly Hashes (MimC & Poseidon) for BN-128, Vesta, & Pallas" />
+          <meta name="description" content="Online utility for ZK Friendly Hashes (MiMC & Poseidon) for BN-128 (Babyjubjub prime), Vesta, & Pallas" />
           <link rel="icon" type="image/png" sizes="16x16" href="/images/function.png" />
       </Head>
       <main className={styles.main}>
@@ -28,8 +28,9 @@ export default function Home() {
         </div>
         <div className={styles.description}>
           <p>
-            Online utility for ZK Friendly Hashes (MimC & Poseidon) over different elliptic curves (BN-128,
-            Vesta, & Pallas). <b> Poseidon currently only works over BN-128. </b>
+            Online utility for ZK Friendly Hashes (MiMC & Poseidon) over different elliptic curves (BN-128 (Babyjubjub prime),
+            Vesta, & Pallas). <b> Poseidon currently only works over BN-128.</b> You can copy & paste vectors/matrices from
+            circom (e.g valid input would be: [[90, 22020202020], [2394340, 2929029092]]). Works on matrices up to 50 dimensions.
           </p>
         </div>
         <div style={{paddingTop: "1%"}}>
