@@ -11,6 +11,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.7",
     "@next/font": "13.1.6",
     "@noble/curves": "^0.6.2",
     "big-integer": "^1.6.51",
