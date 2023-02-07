@@ -17,6 +17,7 @@
     "@mui/material": "^5.11.7",
     "@next/font": "13.1.6",
     "@noble/curves": "^0.6.2",
+    "@vercel/analytics": "^0.1.8",
     "big-integer": "^1.6.51",
     "json-bigint": "^1.0.0",
     "next": "13.1.6",
