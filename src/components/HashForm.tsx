@@ -9,6 +9,8 @@ import Button from "@mui/material/Button";
 import { Result } from "ts-results";
 import { generateHash } from "@/hashes/frontendUtils";
 import styles from '@/styles/Home.module.css'
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function HashForm() {
   const [hashFunction, setHashFunction] = useState("mimc");
@@ -22,7 +24,16 @@ export default function HashForm() {
   function generateAndDisplayHash() {
     let res: Result<bigint, string> = generateHash(hashFunction, curve, iterations, key, input);
     if (res.err) {
-      // TODO: Toast notification that something has gone wrong
+      toast.error('There was an error, please ensure your inputs are correct & settings are appropriate', {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } else {
       setHashValue(res.val.toString());
     }
@@ -48,6 +59,7 @@ export default function HashForm() {
           <Select
             value={curve}
             label="Curve"
+            // @ts-ignore
             onChange={(e) => setCurve(e.target.value)}
           >
             <MenuItem value={'bn-128'}>BN-128</MenuItem>
@@ -81,6 +93,18 @@ export default function HashForm() {
           rows={12}
           onChange={(e) => setInput(e.target.value)}
           defaultValue="Your hash input here (number, vector, or matrix)"
+      />
+      <ToastContainer
+        position="top-left"
+        autoClose={8000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
       />
     </div>
   );
